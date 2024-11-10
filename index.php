@@ -1,4 +1,5 @@
 <?php 
+	require_once('config.php');
 	$pageTitle = 'Главная страница';
 ?>
 
@@ -21,7 +22,11 @@
 					<div class="row">
 
 						<?php
-							for ($i = 1; $i <= 5; $i++ ) {
+							$sql = "SELECT * FROM products";
+							$result = $db->query($sql);
+							$products = $result->fetchAll(PDO::FETCH_ASSOC);
+
+							foreach( $products as $product ){ 
 								include('./templates/_product-item.php');
 							}
 						?>
