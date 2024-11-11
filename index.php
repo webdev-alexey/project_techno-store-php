@@ -1,6 +1,12 @@
 <?php 
 	require_once('config.php');
-	$pageTitle = 'Главная страница';
+
+	if ( isset($_GET['category']) )  {
+		$pageTitle = $_GET['category'];
+	} else {
+		$pageTitle = 'Главная страница';
+	}
+
 ?>
 
 <?php include('./templates/_head.php'); ?>
@@ -21,15 +27,24 @@
 				<div class="col-md-9 col-lg-10">
 					<div class="row">
 
-						<?php
+					<?php
+						if ( isset($_GET['category']) ) {
+							$sql = "SELECT * FROM products WHERE category = :categoryTitle";
+							$stmt = $db->prepare($sql);
+							$stmt->bindValue(':categoryTitle', $_GET['category']);
+							$stmt->execute();
+							$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+						} else {
 							$sql = "SELECT * FROM products";
 							$result = $db->query($sql);
 							$products = $result->fetchAll(PDO::FETCH_ASSOC);
+						}
 
-							foreach( $products as $product ){ 
-								include('./templates/_product-item.php');
-							}
-						?>
+						foreach( $products as $product ){ 
+							include('./templates/_product-item.php');
+						}
+
+					?>
 
 					</div>
 				</div>
