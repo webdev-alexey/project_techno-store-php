@@ -84,6 +84,11 @@ a.site-logo:hover span {
   text-align: right;
 }
 
+.admin_link:hover {
+  opacity: 0.5;
+  color: transparent;
+}
+
 @media (max-width: 576px) {
   .admin-link {
     text-align: center;

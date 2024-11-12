@@ -1,5 +1,13 @@
 <?php 
+	require_once('config.php');
+
+	if ( isset($_SESSION['login']) && $_SESSION['login'] == 'on' ) {
+	} else {
+		header('Location: index.php');
+	}
+
 	$pageTitle = 'Добавить товар';
+
 ?>
 
 <?php include('./templates/_head.php'); ?>
@@ -16,40 +24,40 @@
 				<div class="col-12">
 					<div class="title-1">Добавить товар</div>
 
-					<form>
+					<form action="add-new.php" method="POST" enctype="multipart/form-data" >
 						<div class="form-group">
-							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Название">
+							<input name="title" type="text" class="form-control" placeholder="Название">
 						</div>
 						<div class="form-group">
-							<select class="form-control">
-								<option value="">Телефоны</option>
-								<option value="">Планшеты</option>
-								<option value="">Ноутбуки</option>
-								<option value="">Компьютеры</option>
+							<select class="form-control" name="category" >
+								<option value="Телефоны">Телефоны</option>
+								<option value="Планшеты">Планшеты</option>
+								<option value="Ноутбуки">Ноутбуки</option>
+								<option value="Компьютеры">Компьютеры</option>
 							</select>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Цена">
+							<input name="price" type="text" class="form-control" placeholder="Цена">
 						</div>
 
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-							<label class="form-check-label" for="inlineCheckbox1">распродажа</label>
+							<input name="sale" class="form-check-input" type="checkbox" id="sale" value="1">
+							<label class="form-check-label" for="sale">распродажа</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-							<label class="form-check-label" for="inlineCheckbox2">новинка</label>
+							<input name="new" class="form-check-input" type="checkbox" id="new" value="1">
+							<label class="form-check-label" for="new">новинка</label>
 						</div>
 
 						<div class="form-group pt-3">
-							<label for="exampleFormControlFile1">Фото:</label>
-							<input type="file" class="form-control-file" id="exampleFormControlFile1">
+							<label for="img">Фото:</label>
+							<input name="img" type="file" class="form-control-file" id="img">
 						</div>
 
 						<div class="form-group">
 							<div class="form-group">
-								<label for="exampleFormControlTextarea1">Описание:</label>
-								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+								<label for="description">Описание:</label>
+								<textarea name="description" class="form-control" id="description" rows="3"></textarea>
 							</div>
 							<button type="submit" class="btn btn-primary">Добавить</button>
 						</div>

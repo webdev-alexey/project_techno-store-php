@@ -10,22 +10,22 @@
 
 			<!-- header -->
 			<div class="header text-center">
-				<a href="index.html" class="site-logo">
+				<a href="index.php" class="site-logo">
 					<span>техно</span>Store
 				</a>
 			</div>
 			<!-- // header -->
 
 			<div class="line-between"></div>
-			<form action="admin.html">
+			<form action="check-login.php" method="POST">
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="Пароль">
+					<input type="password" class="form-control" placeholder="Пароль" name="password">
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-block">Войти</button>
 				</div>
 			</form>
-			<p class="text-center"><a href="index.html" class="text-secondary">Вернуться назад</a></p>
+			<p class="text-center"><a href="index.php" class="text-secondary">Вернуться назад</a></p>
 		</div>
 	</div>
 	<!-- // white-plate -->
