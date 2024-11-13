@@ -26,9 +26,9 @@
 				<div class="card-btn__price">
 					<?php echo $product['price']?> ₽
 				</div>
-				<div class="card-btn__btn">
+				<a class="card-btn__btn" href="order.php?id=<?php echo $product['id']?>">
 					Купить
-				</div>
+				</a>
 			</div>
 		</div>
 	</article>

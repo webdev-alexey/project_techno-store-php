@@ -245,7 +245,8 @@ a.product-btn-order:hover {
   border-right: 2px solid var(--blue);
 }
 
-.card-btn__btn {
+.card-btn__btn,
+a.card-btn__btn {
   background-color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -258,12 +259,15 @@ a.product-btn-order:hover {
   cursor: pointer;
   transition: 0.2s ease-in;
   border-radius: 0 4px 4px 0;
+  text-decoration: none;
 }
 
-.card-btn__btn:hover {
+.card-btn__btn:hover,
+a.card-btn__btn:hover {
   background-color: var(--blue);
   color: #fff;
   border-radius: 0;
+  text-decoration: none;
 }
 
 .card-top {
@@ -331,12 +335,12 @@ a.product-btn-order:hover {
   flex: 0 0 120px;
   max-width: 120px;
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto; */
+  margin-right: 20px;
 }
 
 .order-desc {
-  flex: 5 0 auto;
+  flex: 0 1 auto;
   padding-top: 15px;
 }
 

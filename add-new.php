@@ -1,8 +1,14 @@
 <?php 
+
 	require_once('config.php');
 	if ( @$_SESSION['login'] != 'on' ) {
 		header('Location: index.php');
 	}
+
+	$title = htmlspecialchars($_POST['title']);
+	$price = htmlspecialchars($_POST['price']);
+	$description = htmlspecialchars($_POST['description']);
+	$category = htmlspecialchars($_POST['category']);
 
 	if ( @!$_POST['sale'] ) {
 		$_POST['sale'] = NULL;
@@ -24,11 +30,11 @@
 
 	$stmt = $db->prepare($sql);
 
-	$stmt->bindValue(':title', $_POST['title']);
-	$stmt->bindValue(':price', $_POST['price']);
-	$stmt->bindValue(':description', $_POST['description']);
+	$stmt->bindValue(':title', $title);
+	$stmt->bindValue(':price', $price);
+	$stmt->bindValue(':description', $description);
 	$stmt->bindValue(':img', $fileName);
-	$stmt->bindValue(':category', $_POST['category']);
+	$stmt->bindValue(':category', $category);
 	$stmt->bindValue(':sale', $_POST['sale']);
 	$stmt->bindValue(':new', $_POST['new']);
 
